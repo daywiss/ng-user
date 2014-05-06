@@ -1,0 +1,3 @@
+[submodule "level-fancy-server"]
+	path = level-fancy-server
+	url = git@github.com:daywiss/level-fancy-server
