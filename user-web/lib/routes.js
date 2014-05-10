@@ -15,6 +15,9 @@ module.exports = function(app) {
   app.route('/api/users')
     .get(api.get.users)
     .post(api.post.users)
+ 
+  app.route('/api/login')
+    .post(api.post.login)
   
 
   // All undefined api routes should return a 404

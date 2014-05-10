@@ -1,0 +1,14 @@
+div(ng-include='\'partials/navbar\'')
+//-form
+  //-label User
+  //-input(type='text' ng-model='login.username')
+  //-label Password
+  //-input(type='password' ng-model='login.password')
+form.navbar-form(name="loginForm" role="login" ng-submit="loginMe()")
+  .form-group
+    input.form-control(type="text" ng-model="login.username")
+  .form-group
+    input.form-control(type="password" ng-model="login.password")
+  .form-group
+    button.btn.btn-default() Submit
+

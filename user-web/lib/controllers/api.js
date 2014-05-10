@@ -1,6 +1,8 @@
 'use strict';
 
 var db = require('../database.js')
+var passport = require('passport')
+var JSONStream = require('JSONStream')
 
 module.exports.get = {}
 module.exports.post = {}
@@ -36,5 +38,18 @@ exports.post.users = function(req,res){
 }
   
 exports.get.users = function(req,res){
-  console.log(req.body)
+  db.users.createValueStream().on('data',function(data){
+    console.log(data)
+    res.send(data)
+  })
+  //db.users.createValueStream().pipe(JSONStream.stringify()).pipe(res)
+  //console.log(req.body)
+}
+exports.post.login = passport.authenticate('local',
+    {failureRedirect:'/'
+    ,successRedirect:'/'})
+
+exports.post.logout = function(req,res){
+  req.logout()
+  res.redirect('/')
 }
